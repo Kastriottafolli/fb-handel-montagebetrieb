@@ -1,0 +1,14 @@
+{
+  "name": "FB Handel und Montagebetrieb",
+  "short_name": "FB Montage",
+  "description": "Fenster, T\u00fcren, B\u00f6den und Insektenschutz in Bayerbach.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0d",
+  "theme_color": "#0a0b0d",
+  "lang": "de",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

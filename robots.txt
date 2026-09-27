@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fb-handel-montagebetrieb.de/sitemap.xml

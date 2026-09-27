@@ -139,10 +139,6 @@ GALERIE = [
    "Neu verlegter Boden im Wohnraum", False),
   ("bodenaufbau-randdaemmung", "Bodenaufbau mit Randdämmstreifen vor dem Verlegen",
    "Bodenaufbau mit Randdämmstreifen", False),
-  ("vorher-altfenster", "Fenster mit rotem Rahmen während der Montage",
-   "Fenster mit rotem Rahmen, während der Montage", True),
-  ("nachher-neufenster", "Dasselbe Fenster mit neuem Vorbaurollladen in passendem Rot",
-   "Dasselbe Fenster mit neuem Vorbaurollladen", True),
   ("fuhrpark", "Zwei Transporter des Betriebs nebeneinander",
    "Unterwegs im Rottal: unsere beiden Fahrzeuge", False),
 ]
@@ -169,12 +165,12 @@ def projekte():
     <div class="split">
       <div data-reveal>
         <p class="eyebrow">Vorher und nachher</p>
-        <h2 class="h2">Glasbausteine raus, Tageslicht rein.</h2>
-        <p class="lead">Über dem Hauseingang saßen Glasbausteine aus den Siebzigern. Heute steht dort ein schlankes, dreiteiliges Fensterelement in Anthrazit – mit sauberem Anschluss und neuer Laibung.</p>
+        <h2 class="h2">Vom Bohrloch zum fertigen Rollladen.</h2>
+        <p class="lead">Das Fenster war bereits eingebaut, der Rollladen kam später dazu. Der Vorbaukasten wurde farblich auf den Rahmen abgestimmt und ohne Eingriff in das bestehende Fenster montiert.</p>
       </div>
       <div class="ba" data-reveal data-delay="1" style="--pos:50%">
-        <img src="assets/img/ba-vorher-glasbausteine-800.webp" alt="Fassade mit Glasbausteinen über dem Eingang vor dem Umbau" loading="lazy" decoding="async" width="537" height="430">
-        <img class="after" src="assets/img/ba-nachher-fensterelement-800.webp" alt="Dieselbe Fassade mit neuem Fensterelement in Anthrazit" loading="lazy" decoding="async" width="537" height="430">
+        <img src="assets/img/ba-vorher-rollladen-800.webp" alt="Fenster mit rotem Rahmen, Rollladenkasten wird oberhalb montiert" loading="lazy" decoding="async" width="490" height="850">
+        <img class="after" src="assets/img/ba-nachher-rollladen-800.webp" alt="Dasselbe Fenster mit fertig montiertem Rollladen in passendem Rot" loading="lazy" decoding="async" width="490" height="850">
         <span class="ba-tag l">Vorher</span><span class="ba-tag r">Nachher</span>
         <span class="ba-handle" aria-hidden="true"><span class="ba-knob">{drag}</span></span>
         <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Vergleich vorher und nachher verschieben">

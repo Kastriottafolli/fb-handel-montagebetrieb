@@ -217,13 +217,48 @@
     }
   }
 
-  /* ---------- Vorher / Nachher ---------- */
+  /* ---------- Vorher / Nachher ----------
+     Das native <input type=range> bleibt fuer Tastatur und Screenreader
+     erhalten, ist aber auf vielen Handys (vor allem iOS Safari) nur an der
+     exakten, unsichtbaren Reglerposition zu greifen. Deshalb steuert ein
+     eigener Pointer-Handler das gesamte Bild: Ziehen an jeder Stelle setzt
+     die Vergleichsposition. */
   $$(".ba").forEach(function (ba) {
     var range = $(".ba-range", ba);
     if (!range) return;
-    var set = function () { ba.style.setProperty("--pos", range.value + "%"); };
-    range.addEventListener("input", set);
-    set();
+
+    var setPct = function (pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      range.value = pct;
+      ba.style.setProperty("--pos", pct + "%");
+    };
+    setPct(parseFloat(range.value) || 50);
+    range.addEventListener("input", function () { setPct(parseFloat(range.value)); });
+
+    var pctFromEvent = function (e) {
+      var rect = ba.getBoundingClientRect();
+      return ((e.clientX - rect.left) / rect.width) * 100;
+    };
+    var dragging = false;
+    var onMove = function (e) {
+      if (!dragging) return;
+      setPct(pctFromEvent(e));
+      e.preventDefault();
+    };
+    var onUp = function () {
+      if (!dragging) return;
+      dragging = false;
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+    ba.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      dragging = true;
+      setPct(pctFromEvent(e));
+      window.addEventListener("pointermove", onMove, { passive: false });
+      window.addEventListener("pointerup", onUp);
+      e.preventDefault();
+    });
   });
 
   /* ---------- Grossansicht ---------- */

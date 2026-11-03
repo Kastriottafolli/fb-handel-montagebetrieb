@@ -10,3 +10,7 @@ Stand: 3. November 2026.
 - Energiemodell: Standardwerte → 2.520 kWh/Jahr; 0,6 → 1,0 W/(m²K) → 560 kWh/Jahr Mehrverlust; gleiche U-Werte → 0.
 - Es wurde keine Test-E-Mail versendet. Das Formular bereitet eine Nachricht im Mailprogramm des Besuchers vor und meldet keine Versandbestätigung.
 - Die private Vorschau ersetzt weder DNS-Konfiguration noch eine abschließende Prüfung der Unternehmens- und Datenschutzhinweise für den öffentlichen Betrieb.
+
+## Ergänzung: Sieben Schichten
+
+Der originale SVG-Fensteraufbau aus dem bisherigen Auftritt wurde auf der Startseite wiederhergestellt und in Silber/Bronze gestaltet. Automatisches Öffnen beim Scrollen, Zusammensetzen per Button und erneutes Öffnen bei Schichtauswahl wurden im Browser geprüft. Nach Auswahl der Mittelscheibe bleibt genau diese hervorgehoben; sechs weitere Schichten werden abgeblendet. Es werden native Buttons mit Tastaturbedienung und Auswahlstatus verwendet. Animationen beachten reduzierte Bewegung; ohne JavaScript bleibt der aufgefächerte Aufbau sichtbar.

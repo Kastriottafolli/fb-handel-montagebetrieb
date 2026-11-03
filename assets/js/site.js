@@ -126,4 +126,76 @@
   $('.lightbox-close', lightbox)?.addEventListener('click', () => lightbox.close());
   lightbox?.addEventListener('click', e => { if (e.target === lightbox) { const r = lightbox.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) lightbox.close(); } });
   lightbox?.addEventListener('close', () => opener?.focus({ preventScroll: true }));
+  // Preserve the original seven-layer SVG and its exploded-view animation.
+  const anatomy = $('.anatomy');
+  if (anatomy) {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const svg = $('.anatomy-svg', anatomy);
+    const art = $('.anatomy-art', anatomy);
+    const toggle = $('[data-anatomy-toggle]', anatomy);
+    const status = $('[data-anatomy-status]', anatomy);
+    const items = $$('[data-anatomy-layer]', anatomy);
+    const layers = $$('.anatomy-svg .layer', anatomy);
+    const labels = $$('.anatomy-svg .layer-label', anatomy);
+    const wraps = $$('.anatomy-svg .layer-wrap', anatomy);
+    let selected = null;
+    let seen = false;
+    const highlight = index => {
+      layers.forEach((layer, i) => layer.classList.toggle('mute', index !== null && i !== index));
+      labels.forEach((label, i) => label.classList.toggle('dim', index !== null && i !== index));
+    };
+    const setOpen = open => {
+      anatomy.classList.toggle('on', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Wieder zusammensetzen' : 'Aufbau zeigen';
+      status.textContent = open ? 'Aufgefächerter Aufbau' : 'Zusammengesetztes Fenster';
+      if (!open) {
+        selected = null; highlight(null);
+        items.forEach(item => item.setAttribute('aria-pressed', 'false'));
+      }
+    };
+    toggle.hidden = false;
+    if (reduced.matches) { seen = true; setOpen(true); }
+    else if ('IntersectionObserver' in window) setOpen(false);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        anatomy.classList.toggle('in-view', entry.isIntersecting);
+        if (entry.isIntersecting && !seen) { seen = true; setOpen(true); }
+      }), { threshold: .2 });
+      observer.observe(art);
+    } else { anatomy.classList.add('in-view'); setOpen(true); }
+    toggle.addEventListener('click', () => { seen = true; setOpen(!anatomy.classList.contains('on')); });
+    items.forEach((item, i) => {
+      item.addEventListener('mouseenter', () => { if (anatomy.classList.contains('on')) highlight(i); });
+      item.addEventListener('mouseleave', () => highlight(selected));
+      item.addEventListener('focus', () => { if (anatomy.classList.contains('on')) highlight(i); });
+      item.addEventListener('blur', () => highlight(selected));
+      item.addEventListener('click', () => {
+        seen = true;
+        if (!anatomy.classList.contains('on')) setOpen(true);
+        selected = selected === i ? null : i;
+        items.forEach((button, n) => button.setAttribute('aria-pressed', String(n === selected)));
+        highlight(selected);
+      });
+    });
+    const narrow = matchMedia('(max-width: 760px)');
+    const setBox = () => svg.setAttribute('viewBox', narrow.matches ? '-6 10 612 590' : '0 0 900 600');
+    setBox(); narrow.addEventListener('change', setBox);
+    let raf = 0;
+    const applyParallax = (x, y) => {
+      wraps.forEach((wrap, i) => {
+        const depth = (i - 3) * .34;
+        wrap.style.transform = `translate(${(x * depth).toFixed(2)}px,${(y * depth).toFixed(2)}px)`;
+      });
+    };
+    art.addEventListener('pointermove', e => {
+      if (reduced.matches || e.pointerType !== 'mouse' || !anatomy.classList.contains('on')) return;
+      const box = art.getBoundingClientRect();
+      const x = ((e.clientX - box.left) / box.width - .5) * 22;
+      const y = ((e.clientY - box.top) / box.height - .5) * 14;
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(() => applyParallax(x, y));
+    });
+    art.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); applyParallax(0, 0); });
+    reduced.addEventListener('change', () => { cancelAnimationFrame(raf); applyParallax(0, 0); if (reduced.matches) { seen = true; setOpen(true); } });
+  }
 })();

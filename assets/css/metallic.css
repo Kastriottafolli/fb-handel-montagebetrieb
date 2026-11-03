@@ -169,3 +169,26 @@ body { background:var(--silver-surface); }
 .footer-brand .brand-logo { width:106px;height:82px; }
 @media(max-width:1150px){.brand-logo{width:81px;height:69px}}
 @media(max-width:600px){.brand-logo{width:73px;height:61px}.footer-brand .brand-logo{width:96px;height:74px}}
+
+/* Logo intro: contour drawing, then the unchanged metallic PNG fades in. */
+.logo-motion { display:block;width:100%;height:auto;overflow:visible;fill:none;stroke:none; }
+.brand-logo>.logo-motion { width:100%;height:100%; }
+.logo-trace { opacity:0;pointer-events:none; }
+.logo-finish { opacity:1; }
+.logo-motion.is-drawing .logo-finish { animation:logoFinishIn .75s 1.65s both; }
+.logo-motion.is-drawing .logo-trace { animation:logoTraceOut .55s 2.1s both; }
+.logo-motion.is-drawing .logo-trace path { stroke-dasharray:1000;stroke-dashoffset:1000;animation:logoContourIn 1.25s var(--line-delay,0s) cubic-bezier(.45,0,.2,1) both; }
+@keyframes logoContourIn { to{stroke-dashoffset:0} }
+@keyframes logoFinishIn { from{opacity:0}to{opacity:1} }
+@keyframes logoTraceOut { 0%,70%{opacity:1}100%{opacity:0} }
+.hero-logo { position:relative;width:182px;padding-right:40px;margin-bottom:22px;flex-shrink:0; }
+.hero-logo>.logo-motion { width:142px;height:auto;filter:drop-shadow(0 5px 8px #0006); }
+.logo-replay { position:absolute;right:0;bottom:3px;width:30px;height:30px;display:grid;place-items:center;border:1px solid #d2d4dc60;border-radius:50%;background:#15182050;color:#c9ccd6;font-size:18px;line-height:1;transition:background .25s,color .25s; }
+.logo-replay:hover,.logo-replay:focus-visible { background:#292b32;color:#fdd782; }
+.hero .eyebrow.intro { animation-delay:.5s; }
+.hero h1.intro { animation-delay:.7s; }
+.hero .hero-description.intro { animation-delay:.9s; }
+.hero .actions.intro { animation-delay:1.05s; }
+@media(max-width:900px){.hero-logo{width:155px;margin-bottom:18px}.hero-logo>.logo-motion{width:118px}}
+@media(max-width:600px){.hero .hero-content{padding-top:35px}.hero-logo{width:142px;margin-bottom:16px}.hero-logo>.logo-motion{width:104px}.logo-replay{width:28px;height:28px;font-size:16px}.hero .eyebrow{margin-bottom:21px}}
+@media(prefers-reduced-motion:reduce){.logo-motion .logo-finish{opacity:1!important;animation:none!important}.logo-motion .logo-trace{display:none!important}.hero .eyebrow.intro,.hero h1.intro,.hero .hero-description.intro,.hero .actions.intro{animation-delay:0s}}

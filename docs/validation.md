@@ -21,3 +21,10 @@ Der originale SVG-Fensteraufbau aus dem bisherigen Auftritt wurde auf der Starts
 - Metallic-Silber und Goldbronze aus direkt abgenommenen Logo-Farbproben als CSS-Variablen/Verläufe verwendet; siehe `docs/brand-colors.md`.
 - Neue Rollladenillustration im Browser per Tastatur in Tageslicht-, Sichtschutz- und Abendruhe-Stellung geprüft. Pro Zustand ist genau ein Auswahlbutton aktiv. Beschriftung und Beschreibung wechseln passend zur Stellung.
 - Mobile Darstellung bei 390 Pixeln kontrolliert. Bestehende Sieben-Schichten-Animation bleibt erhalten; Meta- und Linkprüfung aller 13 Seiten sowie JavaScript-Syntaxprüfung erfolgreich.
+
+## Ergänzung: Logo-Zeichenanimation
+
+- Animationsprinzip der Referenz ab-bau23.de angesehen: Konturzeichnung, anschließend Überblendung in die fertige Fläche. Für 2bfensterwerk unabhängig mit SVG/CSS umgesetzt, ohne Code, Grafik oder Bibliotheken der Referenz zu übernehmen.
+- 25 Konturpfade aus der Alpha-Silhouette des bestehenden Logos erstellt; das PNG selbst bleibt unverändert.
+- Im Browser drei Instanzen auf der Startseite bestätigt (Header, Hero, Footer). Header und Hero erreichen den Endzustand „complete“. Wiederholen per Tastatur setzt den Hero erneut auf „drawing“.
+- Alle 13 Seiten auf eindeutige SVG-IDs und intakte lokale Verweise geprüft. Mobile Startseite mit größerem Hero-Logo kontrolliert. Reduzierte Bewegung deaktiviert die Zeichenanimation; ohne JavaScript bleibt die PNG-Fassung sichtbar.

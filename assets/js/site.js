@@ -233,4 +233,34 @@
     }
     reduced.addEventListener('change', cancel);
   }
+  // Draw the logo silhouette, then reveal the original metallic artwork.
+  const logoMotionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  const logoTimers = new Map();
+  const playLogo = logo => {
+    clearTimeout(logoTimers.get(logo));
+    logo.classList.remove('is-drawing');
+    if (logoMotionPreference.matches) { logo.dataset.logoState = 'complete';return; }
+    // A layout read resets the animation for explicit replay without replacing the asset.
+    void logo.getBoundingClientRect();
+    logo.dataset.logoState = 'drawing';
+    logo.classList.add('is-drawing');
+    logoTimers.set(logo,setTimeout(() => { logo.classList.remove('is-drawing');logo.dataset.logoState='complete';logoTimers.delete(logo); },2850));
+  };
+  $$('[data-logo-motion]').forEach(logo => {
+    if (logo.closest('.footer') && 'IntersectionObserver' in window && !logoMotionPreference.matches) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry=>entry.isIntersecting)) { playLogo(logo);observer.disconnect(); }
+      },{threshold:.3});
+      observer.observe(logo);
+    } else playLogo(logo);
+  });
+  $$('[data-logo-replay]').forEach(button => {
+    button.hidden=logoMotionPreference.matches;
+    button.addEventListener('click',()=>playLogo($('[data-logo-motion]',button.closest('[data-logo-stage]'))));
+  });
+  logoMotionPreference.addEventListener('change',()=>{
+    $$('[data-logo-motion]').forEach(logo=>{clearTimeout(logoTimers.get(logo));logo.classList.remove('is-drawing');logo.dataset.logoState='complete';});
+    logoTimers.clear();
+    $$('[data-logo-replay]').forEach(button=>button.hidden=logoMotionPreference.matches);
+  });
 })();

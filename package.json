@@ -1,0 +1,5 @@
+{
+  "name": "2bfensterwerk", "version": "2.0.0", "private": true,
+  "description": "2bfensterwerk – Fenster, Türen, Insektenschutz und Rollläden",
+  "scripts": { "build": "python3 scripts/build.py", "dev": "python3 -m http.server 4173", "check": "python3 scripts/check.py" }
+}

@@ -1,6 +1,6 @@
 # 2bfensterwerk
 
-Responsive Website für 2bfensterwerk, Inhaber Faton Bytyci, Au 21a, 94137 Bayerbach. Kontakt: info@2bfensterwerk.de · 0177 5266889. Zieldomain: https://www.2bfensterwerk.de.
+Responsive Website für 2bfensterwerk, Inhaber Faton Bytyci, Au 21a, 94137 Bayerbach. Kontakt: info@2bfensterwerk.de · 0177 5266889. Produktionsdomain: https://2bfensterwerk.de.
 
 ## Starten und prüfen
 
@@ -41,11 +41,13 @@ Generiert mit dem integrierten Imagegen-Werkzeug. Der vollständige Prompt steht
 
 ## Veröffentlichung
 
-`.openai/hosting.json` enthält die private Sites-Vorschau. `dist/` wird nicht ins Git aufgenommen, sondern beim Packaging erzeugt. Der bestehende GitHub-Pages-Workflow bleibt für einen späteren Merge nach `main` erhalten; Änderungen werden auf `codex/2bfensterwerk-redesign` zur Prüfung bereitgestellt.
+Die statische Website wurde am 3. November 2026 im bestehenden DreamHost-Tarif Web Hosting Launch, EU-West Amsterdam, in das Webverzeichnis für `2bfensterwerk.de` hochgeladen. Der genaue Stand und die noch ausstehende öffentliche Domain-/SSL-Aktivierung stehen in `docs/dreamhost-deployment.md`. Canonical-Tags, Sitemap und Datenschutzhinweise sind auf DreamHost und `https://2bfensterwerk.de` abgestimmt. `.htaccess` setzt den Verzeichnisindex, unterbindet Verzeichnislisten und ergänzt HTTP-Sicherheitsheader.
 
-Die eigene Domain ist als Ziel in Canonical-Tags und Sitemap eingetragen. DNS, Domainverbindung und E-Mail-Postfach werden durch den Seitencode nicht eingerichtet. Die private Vorschau ändert die aktuelle Firmenwebsite nicht.
+Für ein Update `npm run check` und `npm run build` ausführen und den Inhalt von `dist/` einschließlich `.htaccess` in das Domainverzeichnis hochladen. Keine Quelltexte, `.git`, `.openai` oder Zugangsdaten hochladen. Das Kontaktformular öffnet weiterhin einen E-Mail-Entwurf; es hat keinen serverseitigen Versand.
 
-Vor einem öffentlichen Betrieb sind die Unternehmensangaben abschließend zu prüfen: Das Logo enthält „OG“, bestätigt wurde der bisherige Inhaber Faton Bytyci. Eine andere Rechtsform oder Registerangabe wurde daher nicht erfunden. Die Umsatzsteuer-/Wirtschafts-Identifikationsnummern und Kammerangaben aus dem alten Repository wurden mangels gesonderter Bestätigung nicht übernommen. Falls einschlägig, sind sie im Impressum zu ergänzen. Die Datenschutzhinweise müssen an den tatsächlich eingesetzten Hosting- und E-Mail-Dienst und die betrieblichen Fristen angepasst werden. Die vorhandene GitHub-Pages-Konfiguration setzt keine Domain-DNS-Einträge.
+`.openai/hosting.json` gehört zur bisherigen privaten Sites-Vorschau. `dist/` wird nicht ins Git aufgenommen. Der bestehende GitHub-Pages-Workflow bleibt für einen späteren Merge nach `main` erhalten; er ist nicht mit DreamHost verbunden. Der Quellstand liegt auf `codex/2bfensterwerk-redesign`.
+
+Das Logo enthält „OG“, bestätigt wurde der bisherige Inhaber Faton Bytyci. Eine andere Rechtsform oder Registerangabe wurde daher nicht erfunden. Die Umsatzsteuer-/Wirtschafts-Identifikationsnummern und Kammerangaben aus dem alten Repository wurden mangels gesonderter Bestätigung nicht übernommen. Falls einschlägig, sind sie im Impressum zu ergänzen.
 
 ## Prüfung
 

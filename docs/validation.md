@@ -14,3 +14,10 @@ Stand: 3. November 2026.
 ## Ergänzung: Sieben Schichten
 
 Der originale SVG-Fensteraufbau aus dem bisherigen Auftritt wurde auf der Startseite wiederhergestellt und in Silber/Bronze gestaltet. Automatisches Öffnen beim Scrollen, Zusammensetzen per Button und erneutes Öffnen bei Schichtauswahl wurden im Browser geprüft. Nach Auswahl der Mittelscheibe bleibt genau diese hervorgehoben; sechs weitere Schichten werden abgeblendet. Es werden native Buttons mit Tastaturbedienung und Auswahlstatus verwendet. Animationen beachten reduzierte Bewegung; ohne JavaScript bleibt der aufgefächerte Aufbau sichtbar.
+
+## Ergänzung: Logo, Metallfarben und Rollladenanimation
+
+- Transparente PNG-Fassung per Imagegen erstellt und auf hellem und dunklem Hintergrund im Browser geprüft. Alpha an Leinwandecke, Fensteröffnung, B-Innenraum und Zwischenraum jeweils 0. Das Original bleibt erhalten.
+- Metallic-Silber und Goldbronze aus direkt abgenommenen Logo-Farbproben als CSS-Variablen/Verläufe verwendet; siehe `docs/brand-colors.md`.
+- Neue Rollladenillustration im Browser per Tastatur in Tageslicht-, Sichtschutz- und Abendruhe-Stellung geprüft. Pro Zustand ist genau ein Auswahlbutton aktiv. Beschriftung und Beschreibung wechseln passend zur Stellung.
+- Mobile Darstellung bei 390 Pixeln kontrolliert. Bestehende Sieben-Schichten-Animation bleibt erhalten; Meta- und Linkprüfung aller 13 Seiten sowie JavaScript-Syntaxprüfung erfolgreich.

@@ -27,12 +27,13 @@ Alternativ die Python-Kommandos in `package.json` direkt verwenden. `dist/` enth
 - Dreistufiger Projektplaner mit Maßprüfung und Flächenberechnung. Aus 150 × 200 cm und 3 gleichen Elementen entstehen 9,00 m². Die Zusammenfassung wird per URL-Parameter ins Kontaktformular übernommen; persönliche Kontaktdaten stehen nicht in der URL.
 - Modellrechnung zum Transmissionswärmeverlust: `Fläche × (Uw alt − Uw neu) × Heizgradstunden / 1000`. Bei 20 m², 2,8 → 1,0 W/(m²K) und 70.000 Kh/a ergibt sich 2.520 kWh/a. Höhere neue U-Werte werden als Mehrverlust ausgegeben. Keine Kosten- oder Verbrauchsprognose.
 - Kontaktformular mit HTML-Validierung: öffnet einen E-Mail-Entwurf an info@2bfensterwerk.de. Der Besucher versendet diesen selbst. Alternativ lässt sich der Text kopieren. Es gibt keinen serverseitigen E-Mail-Versand, keinen Formularserver und keine dauerhafte lokale Speicherung. E-Mail-Übertragung im System-Mailprogramm muss auf dem jeweiligen Endgerät eingerichtet sein.
+- Interaktive Rollladenillustration mit Tageslicht, Sichtschutz und Abendruhe, einmaligem Bewegungsablauf beim Erscheinen und manueller Wiederholung. Zusätzlich metallische Lichtreflexe und Zeichenanimationen; neue Bewegungen beachten reduzierte Bewegung.
 - Responsive Navigation, native FAQ, Bilderdialog und per Tastatur bedienbarer Vorher-Nachher-Regler.
 - Scroll- und Bildanimationen beachten die Systemeinstellung „Bewegung reduzieren“. Inhalte bleiben ohne JavaScript sichtbar; Projektplaner und Rechner benötigen JavaScript.
 
 ## Bilder
 
-Das vom Betreiber gelieferte Logo liegt unter `assets/img/2bfensterwerk-logo.png`. Projektbilder stammen aus dem bisherigen Repository. Die KI-generierte Architekturvisualisierung ist auf der Startseite und im Impressum entsprechend gekennzeichnet und ist keine Referenzaufnahme.
+Das vom Betreiber gelieferte Original-Logo liegt unter `assets/img/2bfensterwerk-logo.png`. Der Auftritt verwendet die freigestellte RGBA-PNG-Fassung `assets/img/2bfensterwerk-logo-transparent.png`; Hintergrund und innere Freiräume sind transparent. Freistellung mit dem integrierten Imagegen-Werkzeug, Prompt in `docs/logo-background-prompt.txt`. Die RGB-Farbproben für die Silber- und Goldbronze-Verläufe sind in `docs/brand-colors.md` dokumentiert; Gestaltung in `assets/css/metallic.css`. Projektbilder stammen aus dem bisherigen Repository. Die KI-generierte Architekturvisualisierung ist auf der Startseite und im Impressum entsprechend gekennzeichnet und ist keine Referenzaufnahme.
 
 Hero-Datei: `assets/img/architektur-hero.webp`.
 Generiert mit dem integrierten Imagegen-Werkzeug. Der vollständige Prompt steht in `docs/image-prompt.txt`.

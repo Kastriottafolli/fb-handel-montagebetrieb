@@ -198,4 +198,39 @@
     art.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); applyParallax(0, 0); });
     reduced.addEventListener('change', () => { cancelAnimationFrame(raf); applyParallax(0, 0); if (reduced.matches) { seen = true; setOpen(true); } });
   }
+  const comfort = $('[data-comfort]');
+  if (comfort) {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const buttons = $$('[data-comfort-mode]');
+    const descriptions = {
+      day: ['Tageslicht', 'Offen für Tageslicht. Der Blick nach draußen bleibt frei.', 'Rollladen geöffnet für Tageslicht'],
+      privacy: ['Sichtschutz', 'Ein wenig Rückzug. Der Rollladen schirmt den oberen Fensterbereich ab.', 'Rollladen zur Hälfte abgesenkt für Sichtschutz'],
+      night: ['Abendruhe', 'Zeit zum Abschalten. Der Rollladen schließt die Fensterfläche.', 'Rollladen vollständig geschlossen für Abendruhe']
+    };
+    let timers = [];
+    const cancel = () => { timers.forEach(clearTimeout); timers = []; };
+    const setMode = (mode, announce = true) => {
+      comfort.dataset.mode = mode;
+      $('[data-comfort-label]', comfort).textContent = descriptions[mode][0];
+      comfort.setAttribute('aria-label', 'Interaktive Fensterillustration: ' + descriptions[mode][2]);
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.comfortMode === mode)));
+      if (announce) $('[data-comfort-description]').textContent = descriptions[mode][1];
+    };
+    const play = () => {
+      cancel();
+      if (reduced.matches) { setMode('day'); return; }
+      setMode('day');
+      timers.push(setTimeout(() => setMode('privacy'), 300));
+      timers.push(setTimeout(() => setMode('day'), 2400));
+    };
+    buttons.forEach(button => button.addEventListener('click', () => { cancel();setMode(button.dataset.comfortMode); }));
+    $('[data-comfort-play]', comfort).addEventListener('click', play);
+    if (!reduced.matches && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) { play(); observer.disconnect(); }
+      }, {threshold:.45});
+      observer.observe(comfort);
+    }
+    reduced.addEventListener('change', cancel);
+  }
 })();

@@ -31,3 +31,11 @@ curl --fail --silent --show-error --output /dev/null --write-out '%{http_code}\n
 ```
 
 Der Build benötigt keinen Formularserver. Anfragen werden vom Besucher mit seinem E-Mail-Programm versendet.
+
+## Aktualisierung am 6. November 2026
+
+Die öffentliche Domain löst inzwischen auf `66.33.214.21` auf. Ein regulärer HTTPS-Abruf war erfolgreich (HTTP 200); DreamHost meldet SSL als Enabled. Die vorherige Veröffentlichung ist als lokales ZIP außerhalb des Repositorys gesichert; ihre Startseite stimmt mit der abgerufenen Live-Startseite überein.
+
+Die Firmenangaben werden auf 2B Fensterwerk UG (haftungsbeschränkt), Geschäftsführer Valon Bytyçi, Lindhofstraße 14, 84307 Eggenfelden, Telefon 0152 515 11101 aktualisiert. Register: Amtsgericht Landshut, HRB 15577. Der Betreiber hat die Namensschreibweise „Bytyçi“ ausdrücklich bestätigt. PNG, WebP und die gezeichnete SVG-Logoanimation verwenden UG. Der alte Logo-Dateiname bleibt als aktualisierte Fassung erreichbar; die Website lädt den neuen UG-Dateinamen zur Vermeidung veralteter Browser-Caches.
+
+Die UG-Aktualisierung ist entpackt. Das öffentliche HTTPS-Impressum stimmt bytegenau mit dem Build überein; die Browserprüfung zeigt Firmierung, Geschäftsführer, Anschrift, Telefon und Registerdaten korrekt. Weitere Seiten wurden direkt per HTTPS mit dem Build abgeglichen. Bei großen Bilddateien traten langsame Übertragungen auf; die Zertifikatsprüfung bleibt aktiv.

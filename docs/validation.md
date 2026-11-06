@@ -28,3 +28,7 @@ Der originale SVG-Fensteraufbau aus dem bisherigen Auftritt wurde auf der Starts
 - 25 Konturpfade aus der Alpha-Silhouette des bestehenden Logos erstellt; das PNG selbst bleibt unverändert.
 - Im Browser drei Instanzen auf der Startseite bestätigt (Header, Hero, Footer). Header und Hero erreichen den Endzustand „complete“. Wiederholen per Tastatur setzt den Hero erneut auf „drawing“.
 - Alle 13 Seiten auf eindeutige SVG-IDs und intakte lokale Verweise geprüft. Mobile Startseite mit größerem Hero-Logo kontrolliert. Reduzierte Bewegung deaktiviert die Zeichenanimation; ohne JavaScript bleibt die PNG-Fassung sichtbar.
+
+## Firmenaktualisierung vom 6. November 2026
+
+Alle 13 Seiten auf alte Namen, Ortsangaben, Anschrift und Rufnummer geprüft. Kontakt-, Datenschutz-, Über-uns- und Impressumsseite verwenden Valon Bytyçi; Telefonlinks führen zu +4915251511101. Vollständige Firmierung und Handelsregisterangaben im Impressum geprüft. Die SVG-Logoanimation wurde aus dem UG-PNG neu abgeleitet (24 Konturen), Replay im Browser geprüft. PNG enthält echte Alphatransparenz. Der ursprüngliche Sieben-Schichten-Abschnitt ist bytegenau unverändert. Kontaktseite bei 390 Pixeln ohne horizontalen Überlauf geprüft. JavaScript-Syntax und interne Website-Prüfung erfolgreich.

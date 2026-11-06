@@ -1,0 +1,6 @@
+Tool: built-in image_gen.imagegen, transparent_background: true
+Input: previous assets/img/2bfensterwerk-logo-transparent.png
+Output: assets/img/2bfensterwerk-logo-ug-transparent.png
+Date: 6 November 2026
+
+Edit target: the provided transparent 2B FENSTERWERK OG company logo. Make one precise typographic correction only: change the small bottom gold/bronze text "OG" to "UG" (U G, two uppercase letters). Keep its size, position, letter spacing, baseline, metallic goldbronze material and the thin horizontal lines on either side identical. Preserve the large silver window symbol and silver "2", bronze "B", "FENSTERWERK" lettering, their exact geometry, colors, material, proportions and layout. No redesign. Keep the background and internal negative spaces fully transparent with a real alpha channel; no black rectangle, no white background, no checkerboard drawn into the image, and no added glow or new shadow. Output the complete isolated logo, same composition and aspect ratio. Text must read 2B FENSTERWERK UG.

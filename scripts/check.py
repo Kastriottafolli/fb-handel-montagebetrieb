@@ -27,8 +27,14 @@ for f in files:
  d=Document();s=f.read_text();d.feed(s);docs[f.name]=d
  if d.h1!=1:errors.append(f'{f.name}: {d.h1} H1-Überschriften')
  if not all([d.title,d.description,d.lang]):errors.append(f'{f.name}: Metadaten fehlen')
- for old in ['fbmontagebetrieb@gmx.de','www.fb-handel-montagebetrieb.de','0177 000000']:
+ for old in ['fbmontagebetrieb@gmx.de','www.fb-handel-montagebetrieb.de','0177 000000','Faton','Au 21a','94137','Bayerbach','0177 5266889','491775266889','Fensterwerk OG','Inhaber:']:
   if old in s:errors.append(f'{f.name}: veraltete Daten {old}')
+ for current in ['2B Fensterwerk UG (haftungsbeschränkt)','Lindhofstraße 14','84307 Eggenfelden','tel:+4915251511101','0152 515 11101']:
+  if current not in s:errors.append(f'{f.name}: aktuelle Firmenangabe fehlt: {current}')
+for file in ['kontakt.html','impressum.html','datenschutz.html','ueber-uns.html']:
+ if 'Valon Bytyçi' not in (root/file).read_text():errors.append(f'{file}: Geschäftsführer fehlt')
+for value in ['Amtsgericht Landshut','HRB 15577','Geschäftsführer Valon Bytyçi']:
+ if value not in (root/'impressum.html').read_text():errors.append(f'Impressum: {value} fehlt')
 for filename,d in docs.items():
  for ref in d.refs:
   u=urlsplit(ref)

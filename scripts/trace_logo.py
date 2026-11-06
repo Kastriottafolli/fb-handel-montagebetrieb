@@ -6,7 +6,7 @@ from pathlib import Path
 from PIL import Image
 import math
 ROOT=Path(__file__).resolve().parent.parent
-image=Image.open(ROOT/'assets/img/2bfensterwerk-logo-transparent.png')
+image=Image.open(ROOT/'assets/img/2bfensterwerk-logo-ug-transparent.png')
 alpha=image.getchannel('A').point(lambda a:255 if a>=128 else 0)
 w,h=alpha.size
 pixels=alpha.tobytes()
@@ -49,9 +49,9 @@ while edges:
 contours.sort(key=lambda c:(c[0],c[1]))
 x0,y0,x1,y1=bounds;padding=12
 view=f'{x0-padding} {y0-padding} {x1-x0+padding*2} {y1-y0+padding*2}'
-svg=f'''<svg class="logo-motion" data-logo-motion data-logo-state="ready" viewBox="{view}" role="img" aria-label="2B Fensterwerk OG" xmlns="http://www.w3.org/2000/svg">
+svg=f'''<svg class="logo-motion" data-logo-motion data-logo-state="ready" viewBox="{view}" role="img" aria-label="2B Fensterwerk UG" xmlns="http://www.w3.org/2000/svg">
 <defs><linearGradient id="__LOGO_ID__-silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f6f6"/><stop offset=".45" stop-color="#bebebd"/><stop offset=".7" stop-color="#f7f6f6"/><stop offset="1" stop-color="#999899"/></linearGradient><linearGradient id="__LOGO_ID__-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdd782"/><stop offset=".55" stop-color="#ce9544"/><stop offset="1" stop-color="#a66e29"/></linearGradient></defs>
-<image class="logo-finish" href="assets/img/2bfensterwerk-logo-transparent.png" x="0" y="0" width="{w}" height="{h}"/>
+<image class="logo-finish" href="assets/img/2bfensterwerk-logo-ug-transparent.png" x="0" y="0" width="{w}" height="{h}"/>
 <g class="logo-trace" fill="none" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">{''.join(c[2] for c in contours)}</g>
 </svg>'''
 (ROOT/'scripts/sections/logo-motion.svg').write_text(svg)

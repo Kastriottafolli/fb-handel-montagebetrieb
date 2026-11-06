@@ -1,0 +1,5 @@
+Tool: built-in image_gen.imagegen, transparent_background: true
+Input: assets/img/2bfensterwerk-logo.png
+Selected output: assets/img/2bfensterwerk-logo-transparent.png
+
+BACKGROUND REMOVAL ONLY. The input is a finished logo, not inspiration. Return the input logo with the black canvas replaced by actual zero-alpha transparency. Do NOT create a new rendition. Preserve the original silver window symbol, original silver numeral 2, original golden-bronze B, exact letter shapes FENSTERWERK and OG, exact original geometry, same positions, colors, highlights, shading and edge details. No new black outlines, no extra extrusions, no gray or gold halo. Remove every region of black background, including holes in letters and the window opening; keep the original metallic foreground. Need PNG with transparent background, tightly framed around the existing logo. The only permitted visible change is removal of background. Keep the original smooth metallic rendering exactly as supplied.
